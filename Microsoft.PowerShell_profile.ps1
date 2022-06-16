@@ -58,27 +58,6 @@ Set-PSReadLineKeyHandler -Key Alt+w `
     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
 }
 
-# Insert text from the clipboard as a here string
-# TODO: test
-Set-PSReadLineKeyHandler -Key Ctrl+V `
-                         -BriefDescription PasteAsHereString `
-                         -LongDescription "Paste the clipboard text as a here string" `
-                         -ScriptBlock {
-    param($key, $arg)
-
-    Add-Type -Assembly PresentationCore
-    if ([System.Windows.Clipboard]::ContainsText())
-    {
-        # Get clipboard text - remove trailing spaces, convert \r\n to \n, and remove the final \n.
-        $text = ([System.Windows.Clipboard]::GetText() -replace "\p{Zs}*`r?`n","`n").TrimEnd()
-        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("@'`n$text`n'@")
-    }
-    else
-    {
-        [Microsoft.PowerShell.PSConsoleReadLine]::Ding()
-    }
-}
-
 
 # `ForwardChar` accepts the entire suggestion text when the cursor is at the end of the line.
 # This custom binding makes `RightArrow` behave similarly - accepting the next word instead of the entire suggestion text.

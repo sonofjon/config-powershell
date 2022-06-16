@@ -2,9 +2,6 @@
 
 # Based on https://github.com/PowerShell/PSReadLine/blob/master/PSReadLine/SamplePSReadLineProfile.ps1
 
-using namespace System.Management.Automation
-using namespace System.Management.Automation.Language
-
 Import-Module PSReadLine
 
 ## Options

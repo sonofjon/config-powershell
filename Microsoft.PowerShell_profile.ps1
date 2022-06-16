@@ -22,9 +22,8 @@ Set-PSReadLineOption -EditMode Emacs
 ## Key bindings
 
 # Improved history search
-#   TODO: test
-# Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-# Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Windows style completion
 Set-PSReadLineKeyHandler -Key Ctrl+q -Function TabCompleteNext

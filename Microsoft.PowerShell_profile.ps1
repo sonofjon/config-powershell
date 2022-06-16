@@ -7,12 +7,16 @@ using namespace System.Management.Automation.Language
 
 Import-Module PSReadLine
 
+## Options
+
 # Use Emacs key bindings 
 Set-PSReadLineOption -EditMode Emacs
 
 # Place cursor at the end of the line while cycling through history
 # TODO: test
 # Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+
+## Key bindings
 
 # Improved history search
 #   TODO: test

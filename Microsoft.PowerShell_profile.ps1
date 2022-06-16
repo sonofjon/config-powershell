@@ -39,6 +39,11 @@ Set-PSReadLineKeyHandler -Key Ctrl+V -Function Paste
 # key bindings.
 #
 # TODO: test
+# Use arrows for word movement
+#   Doesn't work: https://github.com/PowerShell/PSReadLine/issues/105
+Set-PSReadLineKeyHandler -Key Alt+LeftArrow -Function BackwardWord
+Set-PSReadLineKeyHandler -Key Alt+RightArrow -Function ForwardWord
+
 # Set-PSReadLineKeyHandler -Key Alt+d -Function ShellKillWord
 # Set-PSReadLineKeyHandler -Key Alt+Backspace -Function ShellBackwardKillWord
 # Set-PSReadLineKeyHandler -Key Alt+b -Function ShellBackwardWord

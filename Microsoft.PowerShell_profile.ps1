@@ -9,6 +9,9 @@ Import-Module PSReadLine
 
 ## Options
 
+# Disable bell
+Set-PSReadLineOption -BellStyle Visual
+
 # Use Emacs key bindings 
 Set-PSReadLineOption -EditMode Emacs
 

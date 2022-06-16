@@ -30,9 +30,8 @@ Set-PSReadLineKeyHandler -Key Ctrl+q -Function TabCompleteNext
 Set-PSReadLineKeyHandler -Key Ctrl+Q -Function TabCompletePrevious
 
 # Clipboard interaction
-# TODO: use C-S-v? ie. C-V
 Set-PSReadLineKeyHandler -Key Ctrl+C -Function Copy
-Set-PSReadLineKeyHandler -Key Ctrl+v -Function Paste
+Set-PSReadLineKeyHandler -Key Ctrl+V -Function Paste
 
 # The built-in word movement uses character delimiters, but token based word
 # movement is also very useful - these are the bindings you'd use if you

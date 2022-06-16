@@ -16,7 +16,6 @@ Set-PSReadLineOption -BellStyle Visual
 Set-PSReadLineOption -EditMode Emacs
 
 # Place cursor at the end of the line while cycling through history
-# TODO: test
 # Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 
 ## Key bindings
@@ -33,17 +32,13 @@ Set-PSReadLineKeyHandler -Key Ctrl+Q -Function TabCompletePrevious
 Set-PSReadLineKeyHandler -Key Ctrl+C -Function Copy
 Set-PSReadLineKeyHandler -Key Ctrl+V -Function Paste
 
-# The built-in word movement uses character delimiters, but token based word
-# movement is also very useful - these are the bindings you'd use if you
-# prefer the token based movements bound to the normal emacs word movement
-# key bindings.
-#
-# TODO: test
 # Use arrows for word movement
 #   Doesn't work: https://github.com/PowerShell/PSReadLine/issues/105
 Set-PSReadLineKeyHandler -Key Alt+LeftArrow -Function BackwardWord
 Set-PSReadLineKeyHandler -Key Alt+RightArrow -Function ForwardWord
 
+# Use token based movements
+#   (by default Emacs uses word based movement)
 # Set-PSReadLineKeyHandler -Key Alt+d -Function ShellKillWord
 # Set-PSReadLineKeyHandler -Key Alt+Backspace -Function ShellBackwardKillWord
 # Set-PSReadLineKeyHandler -Key Alt+b -Function ShellBackwardWord
@@ -51,10 +46,7 @@ Set-PSReadLineKeyHandler -Key Alt+RightArrow -Function ForwardWord
 # Set-PSReadLineKeyHandler -Key Alt+B -Function SelectShellBackwardWord
 # Set-PSReadLineKeyHandler -Key Alt+F -Function SelectShellForwardWord
 
-# Sometimes you enter a command but realize you forgot to do something else first.
-# This binding will let you save that command in the history so you can recall it,
-# but it doesn't actually execute.  It also clears the line with RevertLine so the
-# undo stack is reset - though redo will still reconstruct the command line.
+# Save command to history 
 Set-PSReadLineKeyHandler -Key Alt+w `
                          -BriefDescription SaveInHistory `
                          -LongDescription "Save current line in history but do not execute" `
@@ -69,9 +61,11 @@ Set-PSReadLineKeyHandler -Key Alt+w `
 }
 
 
-# `ForwardChar` accepts the entire suggestion text when the cursor is at the end of the line.
-# This custom binding makes `RightArrow` behave similarly - accepting the next word instead of the entire suggestion text.
-# TODO: test
+# `ForwardChar` accepts the entire suggestion text when the cursor is
+# at the end of the line.  This custom binding makes `RightArrow`
+# behave similarly - accepting the next word instead of the entire
+# suggestion text.
+#   TODO: Doesn't work (on PowerShell 5.1)
 Set-PSReadLineKeyHandler -Key RightArrow `
                          -BriefDescription ForwardCharAndAcceptNextSuggestionWord `
                          -LongDescription "Move cursor one character to the right in the current editing line and accept the next word in suggestion when it's at the end of current editing line" `

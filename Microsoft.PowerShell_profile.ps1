@@ -13,7 +13,7 @@ Set-PSReadLineOption -BellStyle Visual
 Set-PSReadLineOption -EditMode Emacs
 
 # Place cursor at the end of the line while cycling through history
-# Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 
 ## Key bindings
 

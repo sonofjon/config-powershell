@@ -1,3 +1,9 @@
+#### Modules
+
+### Install-AJApps
+Import-Module ~\Documents\WindowsPowerShell\Install-AJ8Apps.psm1
+
+
 ### PSReadLine
 
 # Based on https://github.com/PowerShell/PSReadLine/blob/master/PSReadLine/SamplePSReadLineProfile.ps1

@@ -1,6 +1,6 @@
 #### Modules
 
-### Install-AJApps
+### Install-AJ8Apps
 Import-Module ~\Documents\WindowsPowerShell\Install-AJ8Apps.psm1
 
 
